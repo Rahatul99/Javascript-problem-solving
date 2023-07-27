@@ -170,7 +170,6 @@ for (let i = romanNumeral.length - 1; i >= 0; i--) {
 return integer;
 }
 
-// Test the function
 console.log(romanToInt("IX")); // Output: 9
 console.log(romanToInt("XXI")); // Output: 21
 console.log(romanToInt("XL")); // Output: 40
@@ -179,32 +178,28 @@ console.log(romanToInt("MCMXCIV")); // Output: 1994
 
 // Task 8: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
 
-function findSecondSmallest(arr) {
-    if (arr.length < 2) {
-      return "Array should have at least two elements.";
+function findSecondSmallest(arr){
+    if(arr.length < 2){
+        return 'arr should have two element at least';
     }
-  
+
     let smallest = Infinity;
     let secondSmallest = Infinity;
-  
-    for (let num of arr) {
-      if (num < smallest) {
-        secondSmallest = smallest;
-        smallest = num;
-      } else if (num < secondSmallest && num !== smallest) {
-        secondSmallest = num;
-      }
+
+    for(let num of arr){
+        if(num < smallest){
+            secondSmallest = smallest;
+            smallest = num;
+        } else if(num < secondSmallest && num !== smallest){
+            secondSmallest = num;
+        }
     }
-  
-    if (secondSmallest === Infinity) {
-      return "There is no second smallest element.";
+
+    if(secondSmallest === Infinity){
+        return 'there is no second smallest element'
     }
-  
-    return secondSmallest;
-  }
-  
-  // Test the function
-  let inputArr = [5, 2, 8, 1, 9, 3];
-  let res = findSecondSmallest(inputArr);
-  console.log(res); // Output: 2
-  
+    return secondSmallest
+}
+
+let secondSmallest = findSecondSmallest([5, 2, 8, 1, 9, 3]);
+console.log(secondSmallest);
