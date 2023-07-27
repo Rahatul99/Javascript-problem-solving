@@ -52,82 +52,65 @@ console.log(arr);
 
 // Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
 
-function findTwoNumbersWithSum(arr, target) {
+function findTwoNumbersWithSum(arr, target){
     let left = 0;
     let right = arr.length - 1;
-  
-    while (left < right) {
-      const sum = arr[left] + arr[right];
-  
-      if (sum === target) {
-        return [left, right];
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
+
+    while (left < right){
+        const sum = arr[left] + arr[right];
+
+        if(sum === target){
+            return [left, right];
+        } else if(sum < target){
+            left++
+        } else{
+            right--
+        }
     }
-  
-    return []; // If no such pair is found
-  }
-  
-  // Test the function
-  let inputArray = [1, 3, 6, 8, 11, 15];
-  let targetValue = 9;
-  let indices = findTwoNumbersWithSum(inputArray, targetValue);
-  console.log(indices); // Output: [1, 2]
-  
+    return []; //if no pain found
+}
 
-
+let array = findTwoNumbersWithSum([1, 3, 6, 8, 11, 15], 9);
+console.log(array);
 
 // Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
 
-  function calculate(num1, num2, operator) {
-    switch (operator) {
-      case '+':
-        return num1 + num2;
-      case '-':
-        return num1 - num2;
-      case '*':
-        return num1 * num2;
-      case '/':
-        if (num2 !== 0) {
-          return num1 / num2;
-        } else {
-          return "Error: Division by zero is not allowed.";
-        }
-      default:
-        return "Error: Invalid operator.";
+function calculate(num1, num2, operator) {
+switch (operator) {
+    case '+':
+    return num1 + num2;
+    case '-':
+    return num1 - num2;
+    case '*':
+    return num1 * num2;
+    case '/':
+    if (num2 !== 0) {
+        return num1 / num2;
+    } else {
+        return "Error: Division by zero is not allowed.";
     }
-  }
+    default:
+    return "Error: Invalid operator.";
+}
+}
   
-  // Test the calculator function
-  let number1 = 5;
-  let number2 = 3;
-  let operator = '+';
-  let result = calculate(number1, number2, operator);
-  console.log(result); // Output: 8
-  
-  operator = '-';
-  result = calculate(number1, number2, operator);
-  console.log(result); // Output: 2
-  
-  operator = '*';
-  result = calculate(number1, number2, operator);
-  console.log(result); // Output: 15
-  
-  operator = '/';
-  result = calculate(number1, number2, operator);
-  console.log(result); // Output: 1.6666666666666667
-  
-  number2 = 0;
-  operator = '/';
-  result = calculate(number1, number2, operator);
-  console.log(result); // Output: "Error: Division by zero is not allowed."
-  
-  operator = '%'; // Invalid operator
-  result = calculate(number1, number2, operator);
-  console.log(result); // Output: "Error: Invalid operator."
+let result = calculate(5, 3, '+');
+console.log(result); // Output: 8
+
+result = calculate(5, 3, '-');
+console.log(result); // Output: 2
+
+result = calculate(5, 3, '*');
+console.log(result); // Output: 15
+
+result = calculate(5, 3, '/');
+console.log(result); // Output: 1.6666666666666667
+
+result = calculate(5, 0, '/');
+console.log(result); // Output: "Error: Division by zero is not allowed."
+
+result = calculate(5, 3, '%');
+console.log(result); // Output: "Error: Invalid operator."
   
 
 
@@ -136,7 +119,7 @@ function findTwoNumbersWithSum(arr, target) {
 
 // Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
-function generateRandomPassword(length) {
+function generateRandomPassword(length){
     const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
@@ -145,19 +128,14 @@ function generateRandomPassword(length) {
     const allCharacters = uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
 
     let password = '';
-    for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * allCharacters.length);
-    password += allCharacters.charAt(randomIndex);
+    for(let i = 0; i < length; i++){
+        const randomIndex = Math.floor(Math.random() * allCharacters.length);
+        password += allCharacters.charAt(randomIndex);
     }
-
-    return password;
+    return password
 }
-
-// Example usage: Generate a random password of length 12
-const passwordLength = 12;
-const randomPassword = generateRandomPassword(passwordLength);
+const randomPassword = generateRandomPassword(12);
 console.log(randomPassword);
-
 
 
 // Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
